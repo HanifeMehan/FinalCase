@@ -1,13 +1,10 @@
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
 .footer-container {
-  position: fixed;
-  bottom: 0;
   width: 100%;
-  background: linear-gradient(#110f2431, #110f2444),
-    url("../../images/library-img.jpg") center/cover no-repeat;
   padding: 2px 0;
   text-align: center;
+  margin: 50px 0 20px 0;
 }
 .footer-content {
   display: flex;

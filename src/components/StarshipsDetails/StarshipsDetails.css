@@ -1,17 +1,27 @@
 .book-details-content {
   display: flex;
-  flex-direction: row;
-  gap: 4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #bdc7e4;
+  background-color: #fff;
+  border-radius: 24px;
+}
+.book-details {
+  background: linear-gradient(to bottom right, #332830, #141623);
+  padding: 5px;
+  border-radius: 24px;
 }
 .book-details-img {
-  width: 50%;
+  display: flex;
+  width: 80%;
+  height: 180px;
+  box-shadow: 0 10px 10px rgb(0 0 0 / 0.5);
+  border-radius: 24px;
 }
 .book-details-img img {
-  width: 80%;
-  height: 350px;
-  margin-right: auto;
-  margin-left: auto;
   border-radius: 4px;
+  border-radius: 24px;
 }
 .book-details-item {
   margin-bottom: 12px;
@@ -20,25 +30,15 @@
   opacity: 0.8;
 }
 .book-details-info {
-  width: 50%;
-  overflow-y: scroll;
+  width: 60%;
   max-height: 600px;
   padding: 16px;
-}
-.book-details-info::-webkit-scrollbar {
-  width: 8px;
-}
-.book-details-info::-webkit-scrollbar-track {
-  border-radius: 8px;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-.book-details-info::-webkit-scrollbar-thumb {
-  background-color: #f9c244;
-  outline: -1px solid slategray;
-  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .homeScreenModal {
-  border-radius: 10px;
+  border-radius: 24px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -47,8 +47,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 50%;
-  height: 400px;
+  width: 30%;
+  padding: 5px;
   gap: 10px;
   background-color: #fff;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -59,48 +59,47 @@
   display: flex;
   flex-direction: column;
 }
-@media screen and (max-width: 1280px) {
+.starshipName {
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #bdc7e4;
+  border-bottom: 1px solid #bdc7e4;
+  margin-bottom: 20px;
+}
+.starshiptxt {
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #bdc7e4;
+}
+@media screen and (max-width: 1100px) {
   .homeScreenModal {
-    width: 70%;
+    width: 35%;
   }
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 900px) {
   .homeScreenModal {
-    width: 80%;
+    width: 40%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .homeScreenModal {
+    width: 50%;
+  }
+  .book-details-content {
+    gap: 0;
   }
 }
 @media screen and (max-width: 600px) {
   .homeScreenModal {
-    width: 90%;
+    width: 60%;
   }
-  .book-details-content {
-    gap: 0;
-  }
+
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 450px) {
   .homeScreenModal {
-    width: 90%;
+    width: 70%;
   }
-  .book-details-content {
-    gap: 0;
-  }
-  .book-details-content {
-    flex-direction: column;
-  }
-  .book-details-img {
-    width: 100%;
-  }
-  .book-details-info {
-    width: 100%;
-  }
-  .book-details-img img {
-    width: 40%;
-    height: 150px;
-  }
-  .book-details-info{
-    overflow-y: unset;
-  }
-  .book-details-item{
-    margin-bottom: 0px;
-  }
+
 }

@@ -20,7 +20,6 @@ const SearchForm = () => {
       setResultPage("Please Enter Something ...");
     } else {
       setSearchTerm(searchText.current.value);
-
     }
 
     navigate("/starship");
@@ -31,17 +30,19 @@ const SearchForm = () => {
       <div className="container">
         <div className="search-form-content">
           <form onSubmit={handleSubmit}>
-            <div className="search-form-elem flex flex-sb bg-white">
+            <div className="search-form-elem flex flex-sb ">
+              <div className="search-txt"> Name/Model</div>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Starhip Name..."
+                placeholder="Name/Model"
                 ref={searchText}
               />
-              <button type="submit" className="flex flex-c">
-                <FaSearch size={22} />
+              <button type="submit" className=" search_btn flex flex-c">
+                Filter
               </button>
             </div>
+            <div className="search-border-bottom"></div>
           </form>
         </div>
       </div>

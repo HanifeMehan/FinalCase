@@ -14,7 +14,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path = "/" element = {<Home />}>
-          <Route path = "/starship" element = {<StarshipList />} />
+          <Route index  path = "/starship" element = {<StarshipList />} />
           <Route path = "/starship/:id" element = {<StarshipsDetails />} />
         </Route>
       </Routes>

@@ -1,56 +1,52 @@
-
-.booklist{
+.booklist {
   width: 100%;
 }
 .booklist-content {
   gap: 3rem;
 }
 .book-item {
-  padding: 0 0 15px 0;
-  border-radius: 4px;
-  background-color: var(--white-color);
+  padding: 0 0 30px 0;
+  border-radius: 24px;
+  background-color: var(--purple-color);
   box-shadow: rgba(0, 0, 0, 0.428) 0px 5px 15px 0px;
   transition: var(--transition);
 }
-.book-item a{
-    width: 100%;
+.book-item a {
+  width: 100%;
 }
 .book-item:hover {
   box-shadow: #25252b 0px 5px 15px 0px;
 }
 .book-item-img {
   width: 100%;
-  height: 200px;
+  height: 130px;
   object-fit: cover;
   margin-right: auto;
   margin-left: auto;
-  border-radius: 4px;
+  border-radius: 24px;
 }
 .book-item-img img {
   width: 100%;
-  height: 200px;
+  height: 130px;
   object-fit: cover;
   margin-right: auto;
   margin-left: auto;
-  border-radius: 4px;
+  border-radius: 24px;
 }
 .book-item-info {
-  margin-top: 28px;
+  margin-top: 15px;
 }
-.book-item-info-item.title {
-  line-height: 1.4;
-  margin-bottom: 12px;
+.starshiptxt {
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #bdc7e4;
 }
-.book-item-info-item.author {
-  line-height: 1.4;
-  margin-bottom: 4px;
-}
-.book-item-info-item:not(.book-item-info-item.title) span:last-child {
-  opacity: 0.8;
-}
-.book-item-info-item.publish-year {
-  opacity: 0.6;
-  font-size: 14px;
+.starshipName {
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #bdc7e4;
 }
 
 @media screen and (min-width: 600px) {
@@ -59,7 +55,7 @@
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 800px) {
   .booklist-content {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -68,5 +64,11 @@
 @media screen and (min-width: 992px) {
   .booklist-content {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .booklist-content {
+    grid-template-columns: repeat(5, 1fr);
   }
 }

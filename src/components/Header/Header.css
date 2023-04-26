@@ -1,11 +1,21 @@
 .header-content {
-  background: linear-gradient(to bottom right, #452c39, #10052a);;
-
   flex-direction: column;
-  padding: 50px;
+  padding: 10px 0px;
 }
-.header-text {
-  margin-bottom: 44px;
-  max-width: 770px;
-  font-size: 25px;
+.header_logo {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0 40px 0;
+}
+.header_img {
+  width: 200px;
+  height: 40px;
+  margin-right: 5px;
+}
+@media screen and (max-width: 500px) {
+  .header_img {
+    width: 150px;
+    height: 35px;
+    margin-right: 5px;
+  }
 }
