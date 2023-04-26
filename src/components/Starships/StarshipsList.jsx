@@ -8,7 +8,7 @@ import "./StarshipsList.css";
 const StarshipList = () => {
   const { starShips, loading, resultPage } = useGlobalContext();
   const shipList = starShips.map((ship) => {
-    console.log("test")
+    console.log(starShips.name)
     return {
       ...ship,
       // removing /works/ to get only id

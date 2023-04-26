@@ -28,12 +28,11 @@ const AppProvider = ({ children }) => {
               name,
               model,
               hyperdrive_rating,
-              manufacturer,
-              cost_in_credits,
-              length,
-              crew,
               passengers,
-              page,
+              max_atmosphering_speed,
+              manufacturer,
+              crew,
+              cargo_capacity,
             } = ship;
             const id = url.match(/(\d+)/)[0];
             return {
@@ -41,12 +40,11 @@ const AppProvider = ({ children }) => {
               name: name,
               model: model,
               hyperdrive_rating: hyperdrive_rating,
-              manufacturer: manufacturer,
-              cost_in_credits: cost_in_credits,
-              length: length,
-              crew: crew,
               passengers: passengers,
-              page :page
+              max_atmosphering_speed: max_atmosphering_speed,
+              manufacturer: manufacturer,
+              crew: crew,
+              cargo_capacity: cargo_capacity,
             };
           });
 
@@ -58,7 +56,7 @@ const AppProvider = ({ children }) => {
             setResultPage("No Search Result Found!");
           }
         } else {
-          console.log(setStarShips.name)
+          console.log(setStarShips.name);
           setStarShips([]);
           setResultPage("No Search Result Found!");
         }
@@ -72,7 +70,7 @@ const AppProvider = ({ children }) => {
   );
 
   useEffect(() => {
-    console.log(starShips.name)
+    console.log(starShips.name);
 
     fetchStarShips();
   }, [searchTerm, fetchStarShips]);

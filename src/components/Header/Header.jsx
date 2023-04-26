@@ -7,7 +7,7 @@ const Header = () => {
     <div className="holder">
       <header className="header">
         <div className="header-content flex flex-c text-center text-white">
-          <p className="header-text fs-18 fw-3">Book Search Using React</p>
+          <p className="header-text fs-18 fw-3"></p>
           <SearchForm />
         </div>
       </header>

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../Loader/Loader";
-import coverImg from "../../images/cover_not_found.jpg";
+import coverImg from "../../images/cover_image.gif";
 import "./StarshipsDetails.css";
 import { Box } from "@mui/system";
 import axios from "axios";
 const URL = "https://swapi.dev/api/starships/";
 
-const StarshipsDetails = ({ page }) => {
+const StarshipsDetails = ({ id }) => {
   const [loading, setLoading] = useState(false);
   const [starship, setStarship] = useState(null);
 
@@ -16,30 +16,28 @@ const StarshipsDetails = ({ page }) => {
       setLoading(true);
 
       try {
-        const response = await axios.get(`${URL}${page}.json`);
+        const response = await axios.get(`${URL}${id}`);
         const data = response.data;
 
         if (data) {
           const {
-            key,
             name,
             model,
-            hyperdrive_rating,
-            manufacturer,
-            cost_in_credits,
-            length,
-            crew,
             passengers,
+            max_atmosphering_speed,
+            manufacturer,
+            crew,
+            cargo_capacity,
           } = data;
 
           const newBook = {
             name,
-            // cover_img: covers
-            //   ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg`
-            //   : coverImg,
             model,
-            hyperdrive_rating,
+            passengers,
+            max_atmosphering_speed,
             manufacturer,
+            crew,
+            cargo_capacity,
           };
 
           setStarship(newBook);
@@ -55,7 +53,7 @@ const StarshipsDetails = ({ page }) => {
     }
 
     getBookDetails();
-  }, [page]);
+  }, [id]);
 
   if (loading) {
     return <Loading />;
@@ -67,19 +65,40 @@ const StarshipsDetails = ({ page }) => {
         <section className="book-details">
           <div className="container">
             <div className="book-details-content grid">
-              {/* <div className="book-details-img">
-                <img src={book?.cover_img} alt="cover img" />
-              </div> */}
+              <div className="book-details-img">
+                <img src={coverImg} alt="cover img" />
+              </div>
               <div className="book-details-info">
                 <div className="book-details-item title">
                   <span className="fw-6 fs-24">{starship?.name}</span>
                 </div>
-                <div className="book-details-item description">
-                  <span>{starship?.hyperdrive_rating}</span>
+                <div className="book-details-item">
+                  <span className="fw-6">Model: </span>
+                  <span className="text-italic">{starship?.model}</span>
                 </div>
                 <div className="book-details-item">
-                  <span className="fw-6">Subject Places: </span>
-                  <span className="text-italic">{starship?.model}</span>
+                  <span className="fw-6">Passengers: </span>
+                  <span className="text-italic">{starship?.passengers}</span>
+                </div>
+                <div className="book-details-item">
+                  <span className="fw-6">Max Atmosfering Speed: </span>
+                  <span className="text-italic">
+                    {starship?.max_atmosphering_speed}
+                  </span>
+                </div>
+                <div className="book-details-item">
+                  <span className="fw-6">Manufacturer: </span>
+                  <span className="text-italic">{starship?.manufacturer}</span>
+                </div>
+                <div className="book-details-item">
+                  <span className="fw-6">Crew: </span>
+                  <span className="text-italic">{starship?.crew}</span>
+                </div>
+                <div className="book-details-item">
+                  <span className="fw-6">Cargo Capacity : </span>
+                  <span className="text-italic">
+                    {starship?.cargo_capacity}
+                  </span>
                 </div>
               </div>
             </div>
