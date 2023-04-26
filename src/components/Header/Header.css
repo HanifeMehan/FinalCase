@@ -1,0 +1,11 @@
+.header-content {
+  background: linear-gradient(#110f2431, #110f2444),
+    url("../../images/library-img.jpg") center/cover no-repeat;
+  flex-direction: column;
+  padding: 50px;
+}
+.header-text {
+  margin-bottom: 44px;
+  max-width: 770px;
+  font-size: 25px;
+}

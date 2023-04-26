@@ -1,0 +1,106 @@
+.book-details-content {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+}
+.book-details-img {
+  width: 50%;
+}
+.book-details-img img {
+  width: 80%;
+  height: 350px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 4px;
+}
+.book-details-item {
+  margin-bottom: 12px;
+}
+.book-details-item.description {
+  opacity: 0.8;
+}
+.book-details-info {
+  width: 50%;
+  overflow-y: scroll;
+  max-height: 600px;
+  padding: 16px;
+}
+.book-details-info::-webkit-scrollbar {
+  width: 8px;
+}
+.book-details-info::-webkit-scrollbar-track {
+  border-radius: 8px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.book-details-info::-webkit-scrollbar-thumb {
+  background-color: #f9c244;
+  outline: -1px solid slategray;
+  border-radius: 8px;
+}
+.homeScreenModal {
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 400px;
+  gap: 10px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.homeFilterContainer {
+  width: 100%;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 1280px) {
+  .homeScreenModal {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 780px) {
+  .homeScreenModal {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .homeScreenModal {
+    width: 90%;
+  }
+  .book-details-content {
+    gap: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .homeScreenModal {
+    width: 90%;
+  }
+  .book-details-content {
+    gap: 0;
+  }
+  .book-details-content {
+    flex-direction: column;
+  }
+  .book-details-img {
+    width: 100%;
+  }
+  .book-details-info {
+    width: 100%;
+  }
+  .book-details-img img {
+    width: 40%;
+    height: 150px;
+  }
+  .book-details-info{
+    overflow-y: unset;
+  }
+  .book-details-item{
+    margin-bottom: 0px;
+  }
+}
