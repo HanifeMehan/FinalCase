@@ -1,4 +1,4 @@
-.book-details-content {
+.starship-details-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,29 +7,29 @@
   background-color: #fff;
   border-radius: 24px;
 }
-.book-details {
+.starship-details {
   background: linear-gradient(to bottom right, #332830, #141623);
   padding: 5px;
   border-radius: 24px;
 }
-.book-details-img {
+.starship-details-img {
   display: flex;
   width: 80%;
   height: 180px;
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.5);
   border-radius: 24px;
 }
-.book-details-img img {
+.starship-details-img img {
   border-radius: 4px;
   border-radius: 24px;
 }
-.book-details-item {
+.starship-details-item {
   margin-bottom: 12px;
 }
-.book-details-item.description {
+.starship-details-item.description {
   opacity: 0.8;
 }
-.book-details-info {
+.starship-details-info {
   width: 60%;
   max-height: 600px;
   padding: 16px;
@@ -37,7 +37,7 @@
   justify-content: center;
   flex-direction: column;
 }
-.homeScreenModal {
+.starshipScreenModal {
   border-radius: 24px;
   position: absolute;
   top: 50%;
@@ -47,19 +47,19 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 30%;
+  width: 25%;
   padding: 5px;
   gap: 10px;
   background-color: #fff;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
-.homeFilterContainer {
+.starshipFilterContainer {
   width: 100%;
   gap: 15px;
   display: flex;
   flex-direction: column;
 }
-.starshipName {
+.starshipDetailName {
   font-size: 16px;
   margin-bottom: 5px;
   font-weight: 600;
@@ -74,31 +74,31 @@
   color: #bdc7e4;
 }
 @media screen and (max-width: 1100px) {
-  .homeScreenModal {
+  .starshipScreenModal {
     width: 35%;
   }
 }
 @media screen and (max-width: 900px) {
-  .homeScreenModal {
+  .starshipScreenModal {
     width: 40%;
   }
 }
 @media screen and (max-width: 700px) {
-  .homeScreenModal {
+  .starshipScreenModal {
     width: 50%;
   }
-  .book-details-content {
+  .starship-details-content {
     gap: 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .homeScreenModal {
+  .starshipScreenModal {
     width: 60%;
   }
 
 }
 @media screen and (max-width: 450px) {
-  .homeScreenModal {
+  .starshipScreenModal {
     width: 70%;
   }
 

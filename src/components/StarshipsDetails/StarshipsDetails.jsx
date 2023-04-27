@@ -12,7 +12,7 @@ const StarshipsDetails = ({ id }) => {
   const [starship, setStarship] = useState(null);
 
   useEffect(() => {
-    async function getBookDetails() {
+    async function getstarshipDetails() {
       setLoading(true);
 
       try {
@@ -30,7 +30,7 @@ const StarshipsDetails = ({ id }) => {
             cargo_capacity,
           } = data;
 
-          const newBook = {
+          const newstarship = {
             name,
             model,
             passengers,
@@ -40,7 +40,7 @@ const StarshipsDetails = ({ id }) => {
             cargo_capacity,
           };
 
-          setStarship(newBook);
+          setStarship(newstarship);
         } else {
           setStarship(null);
         }
@@ -52,7 +52,7 @@ const StarshipsDetails = ({ id }) => {
       }
     }
 
-    getBookDetails();
+    getstarshipDetails();
   }, [id]);
 
   if (loading) {
@@ -60,40 +60,40 @@ const StarshipsDetails = ({ id }) => {
   }
 
   return (
-    <Box className="homeScreenModal">
-      <div className="homeFilterContainer">
-        <div className="book-details">
-          <div className="book-details-content grid">
-            <div className="book-details-item starshipName">
+    <Box className="starshipScreenModal">
+      <div className="starshipFilterContainer">
+        <div className="starship-details">
+          <div className="starship-details-content grid">
+            <div className="starship-details-item starshipDetailName">
               <span className="fw-6 fs-24">{starship?.name}</span>
             </div>
-            <div className="book-details-img">
+            <div className="starship-details-img">
               <img src={coverImg} alt="cover img" />
             </div>
-            <div className="book-details-info">
-              <div className="book-details-item starshiptxt">
+            <div className="starship-details-info">
+              <div className="starship-details-item starshiptxt">
                 <span className="fw-6">Model: </span>
                 <span className="text-italic">{starship?.model}</span>
               </div>
-              <div className="book-details-item starshiptxt">
+              <div className="starship-details-item starshiptxt">
                 <span className="fw-6">Passengers: </span>
                 <span className="text-italic">{starship?.passengers}</span>
               </div>
-              <div className="book-details-item starshiptxt">
+              <div className="starship-details-item starshiptxt">
                 <span className="fw-6">Max Atmosfering Speed: </span>
                 <span className="text-italic">
                   {starship?.max_atmosphering_speed}
                 </span>
               </div>
-              <div className="book-details-item starshiptxt">
+              <div className="starship-details-item starshiptxt">
                 <span className="fw-6">Manufacturer: </span>
                 <span className="text-italic">{starship?.manufacturer}</span>
               </div>
-              <div className="book-details-item starshiptxt">
+              <div className="starship-details-item starshiptxt">
                 <span className="fw-6">Crew: </span>
                 <span className="text-italic">{starship?.crew}</span>
               </div>
-              <div className="book-details-item starshiptxt">
+              <div className="starship-details-item starshiptxt">
                 <span className="fw-6">Cargo Capacity : </span>
                 <span className="text-italic">{starship?.cargo_capacity}</span>
               </div>

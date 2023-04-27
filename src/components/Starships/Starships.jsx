@@ -24,19 +24,19 @@ const StarShip = ({ id, name, model, hyperdrive_rating }) => {
       >
         <StarshipsDetails id={id} />
       </Modal>
-      <div className="book-item flex flex-column flex-sb" onClick={handleOpen}>
-        <div className="book-item-img">
+      <div className="starship-item flex flex-column flex-sb" onClick={handleOpen}>
+        <div className="starship-item-img">
           <img src={coverImg} alt="cover" />
         </div>
-        <div className="book-item-info">
-          <div className="book-item-info-item starshipName text-center">
+        <div className="starship-item-info">
+          <div className="starship-item-info-item starshipName text-center">
             <span>{name}</span>
           </div>
-          <div className="book-item-info-item  starshiptxt">
+          <div className="starship-item-info-item  starshiptxt">
             <span className="text-capitalize ">Model: </span>
             <span>{model}</span>
           </div>
-          <div className="book-item-info-item starshiptxt">
+          <div className="starship-item-info-item starshiptxt">
             <span className="text-capitalize ">Total Editions: </span>
             <span>{hyperdrive_rating}</span>
           </div>

@@ -5,7 +5,7 @@ import Loading from "../Loader/Loader";
 import "./StarshipsList.css";
 
 const StarshipList = () => {
-  const { starShips, loading, resultPage } = useGlobalContext();
+  const { starShips, loading, resultTitle } = useGlobalContext();
   const shipList = starShips.map((ship) => {
     console.log(starShips.name)
     return {
@@ -21,12 +21,12 @@ const StarshipList = () => {
   if (loading) return <Loading />;
 
   return (
-    <section className="booklist">
+    <section className="starshiplist">
       <div className="container">
         <div className="section-title">
-          <h2>{resultPage}</h2>
+          <h2>{resultTitle}</h2>
         </div>
-        <div className="booklist-content grid">
+        <div className="starshiplist-content grid">
           {shipList.slice(0, 30).map((item, index) => {
             return <Starships key={index} {...item} />;
           })}
