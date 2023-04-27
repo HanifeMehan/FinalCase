@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: row;
   padding: 10px 0 40px 0;
+  cursor: pointer;
 }
 .header_img {
   width: 200px;
