@@ -33,7 +33,7 @@
   width: 40%;
   padding: 8px 40px;
   border-radius: 150px;
-  background-color: #144e6d;
+  background-color: #144e6d !important;
   color: #000;
   font-size: 16px;
   border: 1px solid #144e6d;

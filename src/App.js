@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-  useInfiniteQuery,
-} from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppProvider } from "./context";
 import "./index.css";

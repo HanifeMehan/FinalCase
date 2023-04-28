@@ -93,20 +93,13 @@ const AppProvider = ({ children }) => {
         setSearchTerm,
         resultTitle,
         setResultTitle,
+        isFetching,
+        isFetchingNextPage,
+        hasNextPage,
+        fetchNextPage ,
       }}
     >
       {children}
-      {isFetching && !isFetchingNextPage && <p>Fetching more starships...</p>}
-      <button
-        onClick={() => fetchNextPage()}
-        disabled={!hasNextPage || isFetchingNextPage}
-      >
-        {isFetchingNextPage
-          ? "Loading more starships..."
-          : hasNextPage
-          ? "Load more starships"
-          : "All starships loaded"}
-      </button>
     </AppContext.Provider>
   );
 };
