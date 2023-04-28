@@ -48,7 +48,25 @@
   font-weight: 600;
   color: #bdc7e4;
 }
-
+.loadMoreBtn {
+  width: 30%;
+  height: 30px;
+  margin-top: 25px;
+  border-radius: 24px;
+  background-color: var(--primaryColor);
+  box-shadow: rgba(0, 0, 0, 0.428) 0px 5px 15px 0px;
+  transition: var(--transition);
+  color: var(--lilac-color);
+  font-size: 14px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.loadMoreBtn:hover {
+  box-shadow: #25252b 0px 5px 15px 0px;
+}
 @media screen and (min-width: 600px) {
   .starshiplist-content {
     grid-template-columns: repeat(2, 1fr);
