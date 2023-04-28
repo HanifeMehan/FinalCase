@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { GiCrossedSwords } from "react-icons/gi";
 import Loading from "../Loader/Loader";
 import coverImg from "../../images/cover_image.gif";
 import "./StarshipsDetails.css";
@@ -7,7 +8,9 @@ import { Box } from "@mui/system";
 import axios from "axios";
 const URL = "https://swapi.dev/api/starships/";
 
-const StarshipsDetails = ({ id }) => {
+const StarshipsDetails = ({ id, closeModal }) => {
+  const GiCrossedSwords = require('react-icons/gi').GiCrossedSwords;
+
   const [loading, setLoading] = useState(false);
   const [starship, setStarship] = useState(null);
 
@@ -64,6 +67,9 @@ const StarshipsDetails = ({ id }) => {
       <div className="starshipFilterContainer">
         <div className="starship-details">
           <div className="starship-details-content grid">
+            <div onClick={closeModal} >
+              <GiCrossedSwords className="modalCloseIcon"/>
+            </div>
             <div className="starship-details-item starshipDetailName">
               <span className="fw-6 fs-24">{starship?.name}</span>
             </div>

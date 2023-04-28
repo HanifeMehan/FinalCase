@@ -1,15 +1,25 @@
 import React, { useRef, useEffect } from "react";
-import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../context";
 import "./SearchForm.css";
 
 const SearchForm = () => {
-  const { setSearchTerm, setResultPage } = useGlobalContext();
+  const { setSearchTerm, setResultTitle } = useGlobalContext();
   const searchText = useRef("search");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const tempSearchTerm = searchText.current.value.trim();
+
+    if (tempSearchTerm.replace(/[^\w\s]/gi, "").length === 0) {
+      setSearchTerm("");
+      setResultTitle("Please Enter Something ...");
+    } else {
+      setSearchTerm(searchText.current.value);
+    }
+  }, [setResultTitle, setSearchTerm]);
   useEffect(() => searchText.current.focus(), []);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,12 +27,11 @@ const SearchForm = () => {
 
     if (tempSearchTerm.replace(/[^\w\s]/gi, "").length === 0) {
       setSearchTerm("");
-      setResultPage("Please Enter Something ...");
+      setResultTitle("Please Enter Something ...");
     } else {
       setSearchTerm(searchText.current.value);
     }
 
-    navigate("/starship");
   };
 
   return (

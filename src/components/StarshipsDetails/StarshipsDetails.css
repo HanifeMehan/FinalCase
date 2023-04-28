@@ -3,12 +3,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #bdc7e4;
-  background-color: #fff;
+  color: var(--lilac);
+  background-color: var(--white-color);
   border-radius: 24px;
+  padding: 10px 0;
 }
 .starship-details {
-  background: linear-gradient(to bottom right, #332830, #141623);
+  background: linear-gradient(
+    to right,
+    var(--secondaryColor),
+    var(--primaryColor)
+  );
   padding: 5px;
   border-radius: 24px;
 }
@@ -50,7 +55,7 @@
   width: 25%;
   padding: 5px;
   gap: 10px;
-  background-color: #fff;
+  background-color: var(--white-color);
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 .starshipFilterContainer {
@@ -63,15 +68,18 @@
   font-size: 16px;
   margin-bottom: 5px;
   font-weight: 600;
-  color: #bdc7e4;
-  border-bottom: 1px solid #bdc7e4;
+  color: var(--lilac);
+  border-bottom: 1px solid var(--lilac);
   margin-bottom: 20px;
 }
 .starshiptxt {
   font-size: 12px;
   margin-bottom: 5px;
   font-weight: 500;
-  color: #bdc7e4;
+  color: var(--lilac);
+}
+.modalCloseIcon {
+  color: var(--primaryColor);
 }
 @media screen and (max-width: 1100px) {
   .starshipScreenModal {
@@ -95,11 +103,9 @@
   .starshipScreenModal {
     width: 60%;
   }
-
 }
 @media screen and (max-width: 450px) {
   .starshipScreenModal {
     width: 70%;
   }
-
 }

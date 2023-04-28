@@ -3,8 +3,8 @@ import "./StarshipsList.css";
 import { Modal } from "@mui/material";
 import StarshipsDetails from "../StarshipsDetails/StarshipsDetails";
 import coverImg from "../../images/cover_image.gif";
-
-const StarShip = ({ id, name, model, hyperdrive_rating }) => {
+import { Box } from "@mui/system";
+const StarShip = ({ item }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = (event) => {
     event.stopPropagation();
@@ -22,23 +22,28 @@ const StarShip = ({ id, name, model, hyperdrive_rating }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <StarshipsDetails id={id} />
+        <Box>
+          <StarshipsDetails id={item.id} closeModal={handleClose}/>
+        </Box>
       </Modal>
-      <div className="starship-item flex flex-column flex-sb" onClick={handleOpen}>
+      <div
+        className="starship-item flex flex-column"
+        onClick={handleOpen}
+      >
         <div className="starship-item-img">
           <img src={coverImg} alt="cover" />
         </div>
         <div className="starship-item-info">
           <div className="starship-item-info-item starshipName text-center">
-            <span>{name}</span>
+            <span>{item.name}</span>
           </div>
           <div className="starship-item-info-item  starshiptxt">
             <span className="text-capitalize ">Model: </span>
-            <span>{model}</span>
+            <span>{item.model}</span>
           </div>
           <div className="starship-item-info-item starshiptxt">
             <span className="text-capitalize ">Total Editions: </span>
-            <span>{hyperdrive_rating}</span>
+            <span>{item.hyperdrive_rating}</span>
           </div>
         </div>
       </div>
