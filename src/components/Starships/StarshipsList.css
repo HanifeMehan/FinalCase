@@ -1,5 +1,6 @@
 .starshiplist {
   width: 100%;
+  margin-bottom: 50px;
 }
 .starshiplist-content {
   gap: 3rem;
@@ -49,7 +50,7 @@
   color: #bdc7e4;
 }
 .loadMoreBtn {
-  width: 30%;
+  width: 18%;
   height: 30px;
   margin-top: 25px;
   border-radius: 24px;
@@ -67,6 +68,12 @@
 .loadMoreBtn:hover {
   box-shadow: #25252b 0px 5px 15px 0px;
 }
+.section-title{
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 18px 0 24px 10px;
+  color: var(--primaryColor);
+}
 @media screen and (min-width: 600px) {
   .starshiplist-content {
     grid-template-columns: repeat(2, 1fr);
@@ -83,10 +90,31 @@
   .starshiplist-content {
     grid-template-columns: repeat(4, 1fr);
   }
+  
 }
 
 @media screen and (min-width: 1200px) {
   .starshiplist-content {
     grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media screen and (max-width: 960px) {
+  .loadMoreBtn {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 770px) {
+  .loadMoreBtn {
+    width: 35%;
+  }
+}
+@media screen and (max-width: 560px) {
+  .loadMoreBtn {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 440px) {
+  .loadMoreBtn {
+    width: 55%;
   }
 }

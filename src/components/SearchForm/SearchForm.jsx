@@ -39,7 +39,7 @@ const SearchForm = () => {
       <div className="container">
         <div className="search-form-content">
           <form onSubmit={handleSubmit}>
-            <div className="search-form-elem flex flex-sb ">
+            <div className="search-form-elem items-center justify-center flex	 ">
               <div className="search-txt"> Name/Model</div>
               <input
                 type="text"
@@ -47,7 +47,7 @@ const SearchForm = () => {
                 placeholder="Name/Model"
                 ref={searchText}
               />
-              <button type="submit" className=" search_btn flex flex-c">
+              <button type="submit" className=" search_btn flex items-center justify-center">
                 Filter
               </button>
             </div>

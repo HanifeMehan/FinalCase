@@ -23,11 +23,11 @@ const StarShip = ({ item }) => {
         aria-describedby="modal-modal-description"
       >
         <Box>
-          <StarshipsDetails id={item.id} closeModal={handleClose}/>
+          <StarshipsDetails id={item.id} closeModal={handleClose} />
         </Box>
       </Modal>
       <div
-        className="starship-item flex flex-column"
+        className="starship-item flex items-center flex-col"
         onClick={handleOpen}
       >
         <div className="starship-item-img">
@@ -38,11 +38,11 @@ const StarShip = ({ item }) => {
             <span>{item.name}</span>
           </div>
           <div className="starship-item-info-item  starshiptxt">
-            <span className="text-capitalize ">Model: </span>
+            <span className=" font-bold	">Model: </span>
             <span>{item.model}</span>
           </div>
           <div className="starship-item-info-item starshiptxt">
-            <span className="text-capitalize ">Total Editions: </span>
+            <span className=" font-bold	">Total Editions: </span>
             <span>{item.hyperdrive_rating}</span>
           </div>
         </div>

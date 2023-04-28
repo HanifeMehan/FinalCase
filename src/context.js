@@ -70,7 +70,13 @@ const AppProvider = ({ children }) => {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery("starships", fetchStarShips, {
-    getNextPageParam: (lastPage, allPages) => lastPage.next,
+    getNextPageParam: (lastPage, allPages) => {
+      if (lastPage.newStarShip.length === 0) {
+        return null;
+      } else {
+        return lastPage.next;
+      }
+    },
   });
 
   const starShips = data
@@ -96,7 +102,7 @@ const AppProvider = ({ children }) => {
         isFetching,
         isFetchingNextPage,
         hasNextPage,
-        fetchNextPage ,
+        fetchNextPage,
       }}
     >
       {children}
