@@ -7,6 +7,9 @@
   --light-black-color: #717171;
   --transition: all 300ms ease-in-out;
   --purple-color : #111423;
+  --primaryColor: #141623;
+  --secondaryColor:#332830;
+  --lilac: #bdc7e4;
 }
 
 * {
@@ -21,7 +24,8 @@ body {
   font-size: 1.6rem;
   line-height: 1.7;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(to bottom right, #332830, #141623);
+  background: linear-gradient(to right, var(--secondaryColor), var(--primaryColor));
+  height: 100vh;
 }
 
 /* resets */

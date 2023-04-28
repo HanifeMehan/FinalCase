@@ -1,90 +1,112 @@
 import axios from "axios";
+import { useInfiniteQuery } from "react-query";
 import React, { useState, useContext, useEffect, useCallback } from "react";
 const AppContext = React.createContext();
 const BASE_URL = "https://swapi.dev/api/starships/";
 
 const AppProvider = ({ children }) => {
-  const [searchTerm, setSearchTerm] = useState("search");
-  const [starShips, setStarShips] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
-  const [resultPage, setResultPage] = useState("");
+  const [resultTitle, setResultTitle] = useState("");
 
   const fetchStarShips = useCallback(
-    async (id) => {
+    async ({ pageParam = 1 }) => {
       setLoading(true);
       try {
-        if (id) {
-          setLoading(false);
-          return;
-        }
-        // const searchTerm = "Death Star";
-        const response = await axios.get(`${BASE_URL}?search=${searchTerm}`);
-        const data = response.data.results;
-        console.log(data);
-        if (data) {
-          const newStarShip = data.slice(0, 20).map((ship) => {
-            const {
-              url,
-              name,
-              model,
-              hyperdrive_rating,
-              passengers,
-              max_atmosphering_speed,
-              manufacturer,
-              crew,
-              cargo_capacity,
-            } = ship;
-            const id = url.match(/(\d+)/)[0];
-            return {
-              id: id,
-              name: name,
-              model: model,
-              hyperdrive_rating: hyperdrive_rating,
-              passengers: passengers,
-              max_atmosphering_speed: max_atmosphering_speed,
-              manufacturer: manufacturer,
-              crew: crew,
-              cargo_capacity: cargo_capacity,
-            };
-          });
+        const response = await axios.get(
+          `${BASE_URL}?search=${searchTerm}&page=${pageParam}`
+        );
+        const { count, next, results } = response.data;
 
-          setStarShips(newStarShip);
+        const newStarShip = results.map((ship) => {
+          const {
+            url,
+            name,
+            model,
+            hyperdrive_rating,
+            passengers,
+            max_atmosphering_speed,
+            manufacturer,
+            crew,
+            cargo_capacity,
+          } = ship;
+          const id = url.match(/(\d+)/)[0];
+          return {
+            id: id,
+            name: name,
+            model: model,
+            hyperdrive_rating: hyperdrive_rating,
+            passengers: passengers,
+            max_atmosphering_speed: max_atmosphering_speed,
+            manufacturer: manufacturer,
+            crew: crew,
+            cargo_capacity: cargo_capacity,
+          };
+        });
 
-          if (newStarShip.length > 1) {
-            setResultPage("");
-          } else {
-            setResultPage("No Search Result Found!");
-          }
+        if (newStarShip.length > 0) {
+          setResultTitle("");
         } else {
-          console.log(setStarShips.name);
-          setStarShips([]);
-          setResultPage("No Search Result Found!");
+          setResultTitle("No Search Result Found!");
         }
+
         setLoading(false);
+        return { newStarShip, next };
       } catch (error) {
         console.log(error);
         setLoading(false);
+        return { error };
       }
     },
     [searchTerm]
   );
 
-  useEffect(() => {
-    console.log(starShips.name);
+  const {
+    data,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    isFetching,
+    isFetchingNextPage,
+    status,
+  } = useInfiniteQuery("starships", fetchStarShips, {
+    getNextPageParam: (lastPage, allPages) => lastPage.next,
+  });
 
-    fetchStarShips();
-  }, [searchTerm, fetchStarShips]);
+  const starShips = data
+    ? data.pages.map((page) => page.newStarShip).flat()
+    : [];
+
+  useEffect(() => {
+    if (error) {
+      setResultTitle(`Error: ${error.message}`);
+    } else if (data && starShips.length === 0) {
+      setResultTitle("No Search Result Found!");
+    }
+  }, [error, data, starShips]);
+
   return (
     <AppContext.Provider
       value={{
         loading,
         starShips,
         setSearchTerm,
-        resultPage,
-        setResultPage,
+        resultTitle,
+        setResultTitle,
       }}
     >
       {children}
+      {isFetching && !isFetchingNextPage && <p>Fetching more starships...</p>}
+      <button
+        onClick={() => fetchNextPage()}
+        disabled={!hasNextPage || isFetchingNextPage}
+      >
+        {isFetchingNextPage
+          ? "Loading more starships..."
+          : hasNextPage
+          ? "Load more starships"
+          : "All starships loaded"}
+      </button>
     </AppContext.Provider>
   );
 };
