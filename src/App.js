@@ -7,6 +7,8 @@ import Home from "./pages/Home/Home";
 import StarshipList from "./components/Starships/StarshipsList";
 import StarshipsDetails from "./components/StarshipsDetails/StarshipsDetails";
 import LoadingScreen from "./components/Loader/LoadingScreen";
+import Error from "./components/Error/Error";
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const queryClient = new QueryClient();
@@ -26,10 +28,12 @@ function App() {
       <AppProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />}>
-              <Route index path="/starship" element={<StarshipList />} />
+            <Route>
+              <Route path="/" element={<Home />} />
+              <Route path="/starship" element={<StarshipList />} />
               {/* <Route path="/starship/:id" element={<StarshipsDetails  />} /> */}
-              <Route index path="/loading" element={<LoadingScreen />} />
+              <Route path="/loading" element={<LoadingScreen />} />
+              <Route path="/404" element={<Error />} />
             </Route>
           </Routes>
         </BrowserRouter>
