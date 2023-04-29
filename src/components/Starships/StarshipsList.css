@@ -6,7 +6,7 @@
   gap: 3rem;
 }
 .starship-item {
-  height: 280px;
+  height: 300px;
   border-radius: 24px;
   background-color: var(--purple-color);
   box-shadow: rgba(0, 0, 0, 0.428) 0px 5px 15px 0px;

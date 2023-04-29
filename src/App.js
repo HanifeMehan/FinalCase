@@ -6,8 +6,7 @@ import "./index.css";
 import Home from "./pages/Home/Home";
 import StarshipList from "./components/Starships/StarshipsList";
 import StarshipsDetails from "./components/StarshipsDetails/StarshipsDetails";
-import Loader from "./components/Loader/Loader";
-
+import LoadingScreen from "./components/Loader/LoadingScreen";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const queryClient = new QueryClient();
@@ -15,11 +14,11 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1800);
+    }, 3000);
   }, []);
 
   if (isLoading) {
-    return <Loader />;
+    return <LoadingScreen />;
   }
 
   return (
@@ -30,6 +29,7 @@ function App() {
             <Route path="/" element={<Home />}>
               <Route index path="/starship" element={<StarshipList />} />
               {/* <Route path="/starship/:id" element={<StarshipsDetails  />} /> */}
+              <Route index path="/loading" element={<LoadingScreen />} />
             </Route>
           </Routes>
         </BrowserRouter>

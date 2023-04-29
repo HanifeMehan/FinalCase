@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { GiCrossedSwords } from "react-icons/gi";
 import Loading from "../Loader/Loader";
 import coverImg from "../../images/cover_image.gif";
 import "./StarshipsDetails.css";
@@ -67,37 +65,37 @@ const StarshipsDetails = ({ id, closeModal }) => {
       <div className="starshipFilterContainer">
         <div className="starship-details">
           <div className="starship-details-content grid">
-            <div onClick={closeModal}>
+            <div onClick={closeModal} >
               <GiCrossedSwords className="modalCloseIcon" />
             </div>
             <div className="starship-details-item starshipDetailName">
-              <span className="starshipName">{starship?.name}</span>
+              <span className="starshipNameList">{starship?.name}</span>
             </div>
             <div className="starship-details-img">
               <img src={coverImg} alt="cover img" />
             </div>
             <div className="starship-details-info">
-              <div className="starship-details-item starshiptxt">
+              <div className="starship-details-item starshiptxtList">
                 <span className="font-bold">Model: </span>
                 <span>{starship?.model}</span>
               </div>
-              <div className="starship-details-item starshiptxt">
+              <div className="starship-details-item starshiptxtList">
                 <span className="font-bold	">Passengers: </span>
                 <span>{starship?.passengers}</span>
               </div>
-              <div className="starship-details-item starshiptxt">
+              <div className="starship-details-item starshiptxtList">
                 <span className="font-bold">Max Atmosfering Speed: </span>
                 <span>{starship?.max_atmosphering_speed}</span>
               </div>
-              <div className="starship-details-item starshiptxt">
+              <div className="starship-details-item starshiptxtList">
                 <span className="font-bold">Manufacturer: </span>
                 <span>{starship?.manufacturer}</span>
               </div>
-              <div className="starship-details-item starshiptxt">
+              <div className="starship-details-item starshiptxtList">
                 <span className="font-bold">Crew: </span>
                 <span>{starship?.crew}</span>
               </div>
-              <div className="starship-details-item starshiptxt">
+              <div className="starship-details-item starshiptxtList">
                 <span className="font-bold">Cargo Capacity : </span>
                 <span>{starship?.cargo_capacity}</span>
               </div>

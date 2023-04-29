@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useInfiniteQuery } from "react-query";
 import React, { useState, useContext, useEffect, useCallback } from "react";
+
 const AppContext = React.createContext();
 const BASE_URL = "https://swapi.dev/api/starships/";
 
@@ -69,7 +70,7 @@ const AppProvider = ({ children }) => {
     isFetching,
     isFetchingNextPage,
     status,
-  } = useInfiniteQuery("starships", fetchStarShips, {
+  } = useInfiniteQuery(["starships", searchTerm], fetchStarShips, {
     getNextPageParam: (lastPage, allPages) => {
       if (lastPage.newStarShip.length === 0) {
         return null;
@@ -77,6 +78,7 @@ const AppProvider = ({ children }) => {
         return lastPage.next;
       }
     },
+    refetchOnWindowFocus: true, // sayfa fokusu değiştiğinde sayfayı otomatik olarak yenile
   });
 
   const starShips = data
