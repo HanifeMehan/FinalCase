@@ -4,7 +4,7 @@ import { useGlobalContext } from "../../context";
 import "./SearchForm.css";
 
 const SearchForm = () => {
-  const { setSearchTerm, setResultTitle } = useGlobalContext();
+  const { setSearchTerm, setResultTitle , } = useGlobalContext();
   const searchText = useRef("search");
   const navigate = useNavigate();
 
@@ -16,10 +16,12 @@ const SearchForm = () => {
       setResultTitle("Please Enter Something ...");
     } else {
       setSearchTerm(searchText.current.value);
+      console.log(searchText.current.value);
     }
   }, [setResultTitle, setSearchTerm]);
-  useEffect(() => searchText.current.focus(), []);
-
+  useEffect(() => {
+    searchText.current.focus();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +33,6 @@ const SearchForm = () => {
     } else {
       setSearchTerm(searchText.current.value);
     }
-
   };
 
   return (
@@ -47,7 +48,10 @@ const SearchForm = () => {
                 placeholder="Name/Model"
                 ref={searchText}
               />
-              <button type="submit" className=" search_btn flex items-center justify-center">
+              <button
+                type="submit"
+                className=" search_btn flex items-center justify-center"
+              >
                 Filter
               </button>
             </div>

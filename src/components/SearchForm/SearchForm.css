@@ -38,6 +38,10 @@
   font-size: 16px;
   border: 1px solid #144e6d;
   transition: all 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.428) 0px 5px 15px 0px;
+}
+.search_btn:hover {
+  box-shadow: #25252b 0px 5px 15px 0px;
 }
 @media screen and (max-width: 500px) {
   .search-form-elem {
