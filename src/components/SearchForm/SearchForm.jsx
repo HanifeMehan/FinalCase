@@ -1,12 +1,10 @@
 import React, { useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../context";
 import "./SearchForm.css";
 
 const SearchForm = () => {
-  const { setSearchTerm, setResultTitle , } = useGlobalContext();
+  const { setSearchTerm, setResultTitle } = useGlobalContext();
   const searchText = useRef("search");
-  const navigate = useNavigate();
 
   useEffect(() => {
     const tempSearchTerm = searchText.current.value.trim();

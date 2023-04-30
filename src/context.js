@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useInfiniteQuery } from "react-query";
-import React, { useState, useContext, useEffect, useCallback } from "react";
+import React, { useState, useContext, useMemo, useCallback } from "react";
 const AppContext = React.createContext();
 const BASE_URL = "https://swapi.dev/api/starships/";
 
@@ -17,7 +17,7 @@ const AppProvider = ({ children }) => {
         const response = await axios.get(
           `${BASE_URL}?search=${searchTerm}&page=${pageParam}`
         );
-        const { count, next, results } = response.data;
+        const { next, results } = response.data;
 
         const newStarShip = results.map((ship) => {
           const {
@@ -69,9 +69,8 @@ const AppProvider = ({ children }) => {
     hasNextPage,
     isFetching,
     isFetchingNextPage,
-    status,
   } = useInfiniteQuery(["starships", searchTerm], fetchStarShips, {
-    getNextPageParam: (lastPage, allPages) => {
+    getNextPageParam: (lastPage) => {
       if (lastPage.newStarShip.length === 0) {
         return null;
       } else {
@@ -85,7 +84,7 @@ const AppProvider = ({ children }) => {
     ? data.pages.map((page) => page.newStarShip).flat()
     : [];
 
-  useEffect(() => {
+  useMemo(() => {
     if (error) {
       setResultTitle(`Error: ${error.message}`);
     } else if (data && starShips.length === 0) {
