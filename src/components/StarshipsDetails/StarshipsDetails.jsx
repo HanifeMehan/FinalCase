@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { AiFillCloseCircle } from "react-icons/ai";
 import Loading from "../Loader/Loader";
 import coverImg from "../../images/cover_image.gif";
 import "./StarshipsDetails.css";
@@ -7,8 +8,6 @@ import axios from "axios";
 const URL = "https://swapi.dev/api/starships/";
 
 const StarshipsDetails = ({ id, closeModal }) => {
-  const GiCrossedSwords = require("react-icons/gi").GiCrossedSwords;
-
   const [loading, setLoading] = useState(false);
   const [starship, setStarship] = useState(null);
 
@@ -65,8 +64,8 @@ const StarshipsDetails = ({ id, closeModal }) => {
       <div className="starshipFilterContainer">
         <div className="starship-details">
           <div className="starship-details-content grid">
-            <div onClick={closeModal} >
-              <GiCrossedSwords className="modalCloseIcon" />
+            <div onClick={closeModal}>
+              <AiFillCloseCircle className="modalCloseIcon" />
             </div>
             <div className="starship-details-item starshipDetailName">
               <span className="starshipNameList">{starship?.name}</span>

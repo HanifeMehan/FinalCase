@@ -81,9 +81,8 @@
 .modalCloseIcon {
   color: var(--primaryColor);
   cursor: pointer;
-  border: 1px solid var(--black-color);
+  font-size: 20px;
   border-radius: 24px;
-  padding: 2px;
   box-shadow: rgba(0, 0, 0, 0.428) 0px 5px 15px 0px;
 }
 .modalCloseIcon:hover {
