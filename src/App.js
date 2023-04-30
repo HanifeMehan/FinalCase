@@ -29,6 +29,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/starship" element={<StarshipList />} />
             {/* <Route path="/starship/:id" element={<StarshipsDetails  />} /> */}
             <Route path="/loading" element={<LoadingScreen />} />

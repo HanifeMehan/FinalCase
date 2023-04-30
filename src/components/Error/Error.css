@@ -274,6 +274,7 @@
 }
 
 .e-nav__link {
+  cursor: pointer;
   height: 45px;
   line-height: 45px;
   width: 170px;
