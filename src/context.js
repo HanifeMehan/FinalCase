@@ -80,9 +80,13 @@ const AppProvider = ({ children }) => {
     refetchOnWindowFocus: true, // sayfa fokusu değiştiğinde sayfayı otomatik olarak yenilenir
   });
 
-  const starShips = data
-    ? data.pages.map((page) => page.newStarShip).flat()
-    : [];
+  const starShips = useMemo(() => {
+    if (data) {
+      return data.pages.map((page) => page.newStarShip).flat();
+    } else {
+      return [];
+    }
+  }, [data]);
 
   useMemo(() => {
     if (error) {
