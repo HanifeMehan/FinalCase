@@ -11,7 +11,7 @@ const Header = () => {
     <div className="holder">
       <header className="header">
         <div className="header-content flex items-center text-cente">
-          <div className="header_logo" onClick={() => navigate("/starship")}>
+          <div className="header_logo" onClick={() => navigate("/")}>
             <img className="header_img" src={star_logo} alt="star" />
             <img className="header_img" src={wars_logo} alt="wars" />
           </div>
