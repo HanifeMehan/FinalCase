@@ -72,7 +72,7 @@ const StarshipsDetails = ({ id, closeModal }) => {
               <span className="starshipNameList">{starship?.name}</span>
             </div>
             <div className="starship-details-img">
-              <img src={coverImg} alt="cover img" />
+              <img src={coverImg} alt="cover_img" />
             </div>
             <div className="starship-details-info">
               <div className="starship-details-item starshiptxtList">

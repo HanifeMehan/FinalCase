@@ -31,7 +31,7 @@ const StarShip = ({ item }) => {
         onClick={handleOpen}
       >
         <div className="starship-item-img">
-          <img src={coverImg} alt="cover" />
+          <img src={coverImg} alt="cover_image" />
         </div>
         <div className="starship-item-info">
           <div className="starship-item-info-item starshipName text-center">

@@ -87,7 +87,7 @@
   box-shadow: rgba(0, 0, 0, 0.428) 0px 5px 15px 0px;
 }
 .modalCloseIcon:hover {
-  box-shadow: #25252b 0px 5px 15px 0px;
+  box-shadow: var(--secondaryColor) 0px 5px 15px 0px;
 }
 .starshiptxtList {
   font-size: 16px;

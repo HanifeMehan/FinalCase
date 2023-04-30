@@ -16,7 +16,7 @@
   width: 100%;
 }
 .starship-item:hover {
-  box-shadow: #25252b 0px 5px 15px 0px;
+  box-shadow: var(--lilac-color) 0px 5px 15px 0px;
 }
 .starship-item-img {
   width: 100%;
@@ -66,7 +66,7 @@
   cursor: pointer;
 }
 .loadMoreBtn:hover {
-  box-shadow: #25252b 0px 5px 15px 0px;
+  box-shadow: var(--lilac-color) 0px 5px 15px 0px;
 }
 .section-title{
   font-weight: 600;

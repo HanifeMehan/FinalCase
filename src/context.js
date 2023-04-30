@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useInfiniteQuery } from "react-query";
 import React, { useState, useContext, useEffect, useCallback } from "react";
-
 const AppContext = React.createContext();
 const BASE_URL = "https://swapi.dev/api/starships/";
 
@@ -14,6 +13,7 @@ const AppProvider = ({ children }) => {
     async ({ pageParam = 1 }) => {
       setLoading(true);
       try {
+        
         const response = await axios.get(
           `${BASE_URL}?search=${searchTerm}&page=${pageParam}`
         );
