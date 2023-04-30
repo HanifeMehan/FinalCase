@@ -13,6 +13,7 @@ const AppProvider = ({ children }) => {
     async ({ pageParam = 1 }) => {
       setLoading(true);
       try {
+        //Axios ile apiden veriler çekilir
         const response = await axios.get(
           `${BASE_URL}?search=${searchTerm}&page=${pageParam}`
         );
