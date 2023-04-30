@@ -13,7 +13,6 @@ const AppProvider = ({ children }) => {
     async ({ pageParam = 1 }) => {
       setLoading(true);
       try {
-        
         const response = await axios.get(
           `${BASE_URL}?search=${searchTerm}&page=${pageParam}`
         );
@@ -61,7 +60,7 @@ const AppProvider = ({ children }) => {
     },
     [searchTerm]
   );
-
+  //Api' den verileri sayfa sayfa çekebilmek için "react-query" kullanıldı
   const {
     data,
     error,
@@ -78,7 +77,7 @@ const AppProvider = ({ children }) => {
         return lastPage.next;
       }
     },
-    refetchOnWindowFocus: true, // sayfa fokusu değiştiğinde sayfayı otomatik olarak yenile
+    refetchOnWindowFocus: true, // sayfa fokusu değiştiğinde sayfayı otomatik olarak yenilenir
   });
 
   const starShips = data

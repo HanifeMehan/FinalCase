@@ -1,15 +1,25 @@
-import React from 'react';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import React from "react";
+import { useGlobalContext } from "../../context";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import Starship from "../../components/Starships/StarshipsList";
+import Error from "../../components/Error/Error";
 const Home = () => {
+  const { error } = useGlobalContext();
   return (
     <main>
-        <Header />
-        <Starship />
-        <Footer />
+      {error && <Error />}
+      {error ? (
+        <Error />
+      ) : (
+        <main>
+          <Header />
+          <Starship />
+          <Footer />
+        </main>
+      )}
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

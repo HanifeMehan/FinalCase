@@ -28,13 +28,11 @@ function App() {
       <AppProvider>
         <BrowserRouter>
           <Routes>
-            <Route>
-              <Route path="/" element={<Home />} />
-              <Route path="/starship" element={<StarshipList />} />
-              {/* <Route path="/starship/:id" element={<StarshipsDetails  />} /> */}
-              <Route path="/loading" element={<LoadingScreen />} />
-              <Route path="/404" element={<Error />} />
-            </Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/starship" element={<StarshipList />} />
+            {/* <Route path="/starship/:id" element={<StarshipsDetails  />} /> */}
+            <Route path="/loading" element={<LoadingScreen />} />
+            <Route path="/404" element={<Error />} />
           </Routes>
         </BrowserRouter>
       </AppProvider>
