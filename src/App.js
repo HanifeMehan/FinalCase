@@ -5,7 +5,7 @@ import { AppProvider } from "./context";
 import "./index.css";
 import Home from "./pages/Home/Home";
 import StarshipList from "./components/Starships/StarshipsList";
-import StarshipsDetails from "./components/StarshipsDetails/StarshipsDetails";
+// import StarshipsDetails from "./components/StarshipsDetails/StarshipsDetails";
 import LoadingScreen from "./components/Loader/LoadingScreen";
 import Error from "./components/Error/Error";
 
