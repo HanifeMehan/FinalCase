@@ -9,7 +9,6 @@ const StarshipList = () => {
     starShips,
     loading,
     resultTitle,
-    isFetching,
     isFetchingNextPage,
     hasNextPage,
     fetchNextPage,
@@ -25,14 +24,11 @@ const StarshipList = () => {
           <h2>{resultTitle}</h2>
         </div>
         <div className="starshiplist-content grid">
-          {starShips.slice(0, 40).map((item, index) => {
+          {starShips.map((item, index) => {
             return <Starships key={index} item={item} />;
           })}
         </div>
         <div className="flex justify-center items-center">
-          {isFetching && !isFetchingNextPage && (
-            <p>Fetching more starships...</p>
-          )}
           <button
             className="loadMoreBtn"
             onClick={() => fetchNextPage()}

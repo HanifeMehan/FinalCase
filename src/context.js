@@ -77,7 +77,7 @@ const AppProvider = ({ children }) => {
         return lastPage.next;
       }
     },
-    refetchOnWindowFocus: true, // sayfa fokusu değiştiğinde sayfayı otomatik olarak yenilenir
+    // refetchOnWindowFocus: true, // sayfa fokusu değiştiğinde sayfayı otomatik olarak yenilenir
   });
 
   const starShips = useMemo(() => {

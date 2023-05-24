@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useGlobalContext } from "../../context";
 import "./SearchForm.css";
 
 const SearchForm = () => {
   const { setSearchTerm, setResultTitle } = useGlobalContext();
-  const searchText = useRef("search");
+  const searchText = useRef("");
 
   useEffect(() => {
     const tempSearchTerm = searchText.current.value.trim();
@@ -14,12 +14,12 @@ const SearchForm = () => {
       setResultTitle("Please Enter Something ...");
     } else {
       setSearchTerm(searchText.current.value);
-      console.log(searchText.current.value);
     }
   }, [setResultTitle, setSearchTerm]);
+
   useEffect(() => {
     searchText.current.focus();
-  }, []);
+  }, [searchText]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

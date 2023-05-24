@@ -4,56 +4,14 @@ import Loading from "../Loader/Loader";
 import coverImg from "../../images/cover_image.gif";
 import "./StarshipsDetails.css";
 import { Box } from "@mui/system";
-import axios from "axios";
+import { useGlobalContext } from "../../context";
 const URL = "https://swapi.dev/api/starships/";
 
 const StarshipsDetails = ({ id, closeModal }) => {
   const [loading, setLoading] = useState(false);
-  const [starship, setStarship] = useState(null);
 
-  useEffect(() => {
-    async function getstarshipDetails() {
-      setLoading(true);
-
-      try {
-        const response = await axios.get(`${URL}${id}`);
-        const data = response.data;
-
-        if (data) {
-          const {
-            name,
-            model,
-            passengers,
-            max_atmosphering_speed,
-            manufacturer,
-            crew,
-            cargo_capacity,
-          } = data;
-
-          const newstarship = {
-            name,
-            model,
-            passengers,
-            max_atmosphering_speed,
-            manufacturer,
-            crew,
-            cargo_capacity,
-          };
-
-          setStarship(newstarship);
-        } else {
-          setStarship(null);
-        }
-
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-        setLoading(false);
-      }
-    }
-
-    getstarshipDetails();
-  }, [id]);
+  const { starShips   } = useGlobalContext();
+  const starship = starShips.find(ship => ship.id === id);
 
   if (loading) {
     return <Loading />;
