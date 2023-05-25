@@ -27,7 +27,7 @@ const StarShip = ({ item }) => {
         </Box>
       </Modal>
       <div
-        className="starship-item flex items-center flex-col"
+        className="starship-item flex items-center flex-col cursor-pointer"
         onClick={handleOpen}
       >
         <div className="starship-item-img">

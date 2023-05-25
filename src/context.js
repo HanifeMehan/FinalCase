@@ -8,7 +8,7 @@ const AppProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [resultTitle, setResultTitle] = useState("");
-
+  //useCallback kancası bir işlevi önbelleğe almak için kullanılır
   const fetchStarShips = useCallback(
     async ({ pageParam = 1 }) => {
       setLoading(true);
@@ -79,7 +79,7 @@ const AppProvider = ({ children }) => {
     },
     // refetchOnWindowFocus: true, // sayfa fokusu değiştiğinde sayfayı otomatik olarak yenilenir
   });
-
+  //useMemo kancası ise hesaplamaları önbelleğe almak için kullanılır
   const starShips = useMemo(() => {
     if (data) {
       return data.pages.map((page) => page.newStarShip).flat();
